@@ -1,3 +1,6 @@
-anana*20*anana.080643.jpeg
-frutilla*25*frutilla.080703.jpeg
-menta granizada*15*menta granizada.080721.jpeg
+naranja*50*naranja.203150.jpeg
+ciruela*50*ciruela.203155.jpeg
+frambuesa*50*frambuesa.203201.jpeg
+pera*50*pera.204749.jpeg
+quinoto*50*quinoto.204810.jpeg
+uva*25*uva.223345.jpeg
