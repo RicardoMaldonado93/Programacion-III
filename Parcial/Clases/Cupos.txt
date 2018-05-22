@@ -1,0 +1,64 @@
+function inscribirAlumno($nombre, $apellido, $email, $materia, $codigo)
+    {
+        $materias = leerArchivo("./Clases/Registros/Materias.txt");
+        $inscriptos = leerArchivo("./Clases/Registros/Incriptos.txt");
+        $cupo; $N_materias = array(); $no_cupos= true; $materia_nueva;
+        $no_materia= true;
+    
+        
+        foreach($materias as $materia => $ind)
+        {
+            if(isset($ind[1]) && $ind[1] == $codigo )
+            {
+                if ($ind[2] > 0)
+                {
+                    //si hay cupo, se resta uno y se crea el nuevo objeto con los datos actualizados       
+                    $cupo = $ind[2] - 1;
+                    $materia_nueva = new Materia ($ind[0],$ind[1],$cupo,$ind[3]);
+                    $no_cupos = false;
+                }/*
+                else
+                {
+                    //sino hay cupos se crea el objeto con sus respectivos valores
+                    $no_cupos = true;
+                    $materia_nueva = new Materia ($ind[0],$ind[1],$cupo,$ind[3]);
+                }*/
+            }
+        
+        foreach
+        /*    
+            if(isset($ind[1]) && $ind[1] != $codigo )
+            {
+                //creo la nueva lista con valores actualizados
+                $N_materias[] = $ind;
+            }
+            else
+                $no_materia = true;
+            
+        }
+            */
+
+        if($no_cupos == false)
+        {
+            /*
+            //si quedan cupos se guarda la info con los nuevos datos
+
+            $archivo = fopen("./Clases/Registros/Materias.txt", "w+");
+            foreach($N_materias as $m => $ind)
+            {
+                $str = $ind[0] . "*" . $ind[1] . "*" . $ind[2] . "*" . $ind[3];
+                fwrite($archivo, $str);
+            
+            }
+            
+            if(fwrite($archivo, $materia_nueva))*/
+
+            if(escribirArchivo("./Clases/Registros/Inscriptos.txt", $materia_nueva))
+                echo strtoupper("se ha inscripto el alumno correctamente");
+        }
+
+        if($no_cupos == true)
+        {
+            echo strtoupper("no hay cupos para la materia");
+        }
+    }
